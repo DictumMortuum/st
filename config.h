@@ -198,13 +198,14 @@ static MouseShortcut mshortcuts[] = {
 	{ Button5,              XK_ANY_MOD,     "\005" },
 };
 
-static char *screenedit[] = { "/bin/sh", "-cl", "dotctl.sh st-screenedit", "externalpipe", NULL };
-static char *url[] = { "/bin/sh", "-cl", "dotctl.sh st-url", "externalpipe", NULL };
-static char *jira[] = { "/bin/sh", "-cl", "dotctl.sh st-jira", "externalpipe", NULL };
-static char *lines[] = { "/bin/sh", "-cl", "dotctl.sh st-lines", "externalpipe", NULL };
-static char *tokens[] = { "/bin/sh", "-cl", "dotctl.sh st-tokens", "externalpipe", NULL };
-static char *copy[] = { "/bin/sh", "-cl", "dotctl.sh st-copy", "externalpipe", NULL };
-static char *sudo[] = { "/bin/sh", "-cl", "dotctl.sh st-superuser", "externalpipe", NULL };
+static char *external[][6] = {
+  { "/bin/sh", "-cl", "dotctl.sh st-screenedit", "externalpipe", NULL },
+  { "/bin/sh", "-cl", "dotctl.sh st-url", "externalpipe", NULL },
+  { "/bin/sh", "-cl", "dotctl.sh st-tokens", "externalpipe", NULL },
+  { "/bin/sh", "-cl", "dotctl.sh st-lines", "externalpipe", NULL },
+  { "/bin/sh", "-cl", "dotctl.sh st-superuser", "externalpipe", NULL },
+  { "/bin/sh", "-cl", "dotctl.sh st-jira", "externalpipe", NULL }
+};
 
 /* Internal keyboard shortcuts. */
 #define MODKEY Mod1Mask
@@ -219,13 +220,12 @@ static Shortcut shortcuts[] = {
 	{ ControlMask,          XK_Insert,      clippaste,      {.i =  0} },
 	{ ShiftMask,            XK_Insert,      selpaste,       {.i =  0} },
 	{ TERMMOD,              XK_Num_Lock,    numlock,        {.i =  0} },
-	{ TERMMOD,              XK_E,           externalpipe,   { .v = screenedit } },
-	{ TERMMOD,              XK_U,           externalpipe,   { .v = url } },
-	{ TERMMOD,              XK_T,           externalpipe,   { .v = tokens } },
-	{ TERMMOD,              XK_G,           externalpipe,   { .v = copy } },
-	{ TERMMOD,              XK_L,           externalpipe,   { .v = lines } },
-	{ TERMMOD,              XK_S,           externalpipe,   { .v = sudo } },
-	{ TERMMOD,              XK_J,           externalpipe,   { .v = jira } },
+	{ TERMMOD,              XK_E,           externalpipe,   { .v = external[0] } },
+	{ TERMMOD,              XK_U,           externalpipe,   { .v = external[1] } },
+	{ TERMMOD,              XK_T,           externalpipe,   { .v = external[2] } },
+	{ TERMMOD,              XK_L,           externalpipe,   { .v = external[3] } },
+	{ TERMMOD,              XK_S,           externalpipe,   { .v = external[4] } },
+	{ TERMMOD,              XK_J,           externalpipe,   { .v = external[5] } },
 };
 
 /*
