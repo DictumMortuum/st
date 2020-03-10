@@ -199,12 +199,12 @@ static MouseShortcut mshortcuts[] = {
 };
 
 static char *external[][6] = {
-  { "/bin/sh", "-cl", "dotctl.sh st-screenedit", "externalpipe", NULL },
-  { "/bin/sh", "-cl", "dotctl.sh st-url", "externalpipe", NULL },
-  { "/bin/sh", "-cl", "dotctl.sh st-tokens", "externalpipe", NULL },
-  { "/bin/sh", "-cl", "dotctl.sh st-lines", "externalpipe", NULL },
-  { "/bin/sh", "-cl", "dotctl.sh st-superuser", "externalpipe", NULL },
-  { "/bin/sh", "-cl", "dotctl.sh st-jira", "externalpipe", NULL }
+  { "dotctl", "st-screenedit", "externalpipe", NULL },
+  { "dotctl", "st-url", "externalpipe", NULL },
+  { "dotctl", "st-tokens", "externalpipe", NULL },
+  { "dotctl", "st-lines", "externalpipe", NULL },
+  { "dotctl", "st-superuser", "externalpipe", NULL },
+  { "dotctl", "st-jira", "externalpipe", NULL }
 };
 
 /* Internal keyboard shortcuts. */
