@@ -1930,6 +1930,10 @@ strparse(void)
 	}
 }
 
+void cleanup(int signal) {
+	while (waitpid((pid_t) (-1), 0, WNOHANG) > 0) {}
+}
+
 void
 externalpipe(const Arg *arg)
 {
@@ -1938,6 +1942,7 @@ externalpipe(const Arg *arg)
 	void (*oldsigpipe)(int);
 	Glyph *bp, *end;
 	int lastpos, n, newline;
+	signal(SIGCHLD, cleanup);
 
 	if (pipe(to) == -1)
 		return;
