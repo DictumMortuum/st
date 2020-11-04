@@ -204,7 +204,8 @@ static char *external[][6] = {
   { "dotctl", "st-tokens", "externalpipe", NULL },
   { "dotctl", "st-lines", "externalpipe", NULL },
   { "dotctl", "st-superuser", "externalpipe", NULL },
-  { "dotctl", "st-jira", "externalpipe", NULL }
+  { "dotctl", "st-jira", "externalpipe", NULL },
+  { "dotctl", "st-cmd", "externalpipe", NULL }
 };
 
 /* Internal keyboard shortcuts. */
@@ -226,6 +227,7 @@ static Shortcut shortcuts[] = {
 	{ TERMMOD,              XK_L,           externalpipe,   { .v = external[3] } },
 	{ TERMMOD,              XK_S,           externalpipe,   { .v = external[4] } },
 	{ TERMMOD,              XK_J,           externalpipe,   { .v = external[5] } },
+	{ TERMMOD,              XK_F,           externalpipe,   { .v = external[6] } },
 };
 
 /*
