@@ -226,7 +226,8 @@ static char *external[][6] = {
   { "dotctl", "st-lines", "externalpipe", NULL },
   { "i3-utils", "st", "type", "externalpipe", NULL },
   { "dotctl", "st-jira", "externalpipe", NULL },
-  { "i3-utils", "st", "cmdout", "externalpipe", NULL }
+  { "i3-utils", "st", "cmdout", "externalpipe", NULL },
+  { "i3-utils", "st", "cmdout", "-o", "externalpipe", NULL }
 };
 
 /* Internal keyboard shortcuts. */
@@ -249,6 +250,7 @@ static Shortcut shortcuts[] = {
 	{ TERMMOD,              XK_S,           externalpipe,   { .v = external[4] } },
 	{ TERMMOD,              XK_J,           externalpipe,   { .v = external[5] } },
 	{ TERMMOD,              XK_O,           externalpipe,   { .v = external[6] } },
+	{ ControlMask,          XK_o,           externalpipe,   { .v = external[7] } },
 };
 
 /*
